@@ -1,9 +1,12 @@
 pipeline {
     agent any
+
     stages {
-        stage('Hello') {
+        stage('Build') {
             steps {
-                echo 'Hello, world!'
+                nodejs(nodeJSInstallationName: 'Node 6.x') {
+                    sh 'npm install'
+                }
             }
         }
     }
